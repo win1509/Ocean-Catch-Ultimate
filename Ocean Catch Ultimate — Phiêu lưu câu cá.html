@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#082b43">
+<title>Ocean Catch Ultimate — Phiêu lưu câu cá</title>
+<style>
+:root{color-scheme:dark;--bg:#061b2c;--panel:#0d2b43;--panel2:#123750;--line:#2b5369;--text:#effaff;--muted:#a5c3d2;--aqua:#82ead7;--blue:#64c8e9;--gold:#ffd27c;--shadow:0 18px 50px #00111f66}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif}body{padding:22px clamp(12px,3vw,40px) 30px;background:radial-gradient(ellipse at 50% -15%,#1b5370 0,#0b2d47 48%,#061b2c 100%);overflow-x:hidden}button{font:inherit;color:inherit;border:0;cursor:pointer;touch-action:manipulation}button:focus-visible{outline:3px solid #a5fff0;outline-offset:3px}.app{max-width:1480px;margin:auto}.topbar{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:18px}.brand{display:flex;align-items:center;gap:13px}.logo{display:grid;place-items:center;width:52px;height:52px;border-radius:17px;background:linear-gradient(145deg,#a5f4db,#44a9d5);font-size:27px;box-shadow:0 8px 24px #37c3bd44}.brand h1{font-size:clamp(21px,2.5vw,29px);line-height:1;margin:0;letter-spacing:.07em;font-weight:950}.brand p{font-size:10px;color:#9ec7d9;font-weight:800;letter-spacing:.2em;margin:7px 0 0}.stats{display:flex;gap:9px;flex-wrap:wrap;justify-content:flex-end}.stat{display:flex;align-items:center;gap:8px;padding:9px 13px;border:1px solid #4c789055;background:#09263bbd;border-radius:15px;min-width:106px}.stat b{display:block;font-size:15px}.stat small{display:block;font-size:9px;color:#93b6c9;letter-spacing:.12em;font-weight:800}.stat i{font-style:normal;font-size:21px}.layout{display:grid;grid-template-columns:minmax(0,1fr) 325px;gap:17px;align-items:start}.maincol{min-width:0}.world-card{position:relative;overflow:hidden;border-radius:25px;border:1px solid #9edff044;background:#0a3851;box-shadow:var(--shadow)}.world{position:relative;width:100%;aspect-ratio:16/9;min-height:330px;overflow:hidden;background:#83d5db}.world svg{display:block;width:100%;height:100%;overflow:hidden}.world-head{position:absolute;z-index:3;top:15px;left:16px;right:16px;display:flex;justify-content:space-between;gap:10px;pointer-events:none}.tag{padding:9px 12px;border:1px solid #e4ffff55;border-radius:12px;background:#082b42a8;font-size:10px;letter-spacing:.09em;font-weight:900;color:#f0ffff;text-shadow:0 1px 4px #10354a}.tag.weather{letter-spacing:0;font-size:11px}.scene-message{position:absolute;z-index:3;top:20%;left:50%;transform:translateX(-50%);width:max-content;max-width:80%;padding:10px 17px;border:1px solid #dcffff44;border-radius:14px;background:#082d43a8;text-align:center;font-size:13px;font-weight:900;box-shadow:0 5px 25px #06263a44;pointer-events:none;backdrop-filter:none}.scene-message small{display:block;margin-top:4px;font-size:10px;color:#c7ebf1;font-weight:600}.world-footer{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px 16px;background:linear-gradient(90deg,#082c45,#0d3a55);color:#b8d8e5;font-size:11px}.tip{display:flex;align-items:center;gap:7px}.key{padding:3px 7px;border:1px solid #5a8599;border-radius:6px;background:#173e58;color:#e5fbff;font-size:10px;font-weight:900}.below{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:13px}.feature{display:flex;align-items:center;gap:12px;padding:14px 15px;border:1px solid #4c789033;border-radius:17px;background:#0b2b43c9}.feature-icon{display:grid;place-items:center;width:42px;height:42px;flex:none;border-radius:13px;background:#174863;font-size:21px}.feature b{display:block;font-size:12px;margin-bottom:4px}.feature p{margin:0;font-size:10px;color:#9dbccc;line-height:1.45}.sidebar{display:flex;flex-direction:column;gap:13px}.panel{padding:17px;border:1px solid #4d789044;border-radius:20px;background:linear-gradient(155deg,#123650f5,#09263df5);box-shadow:0 12px 30px #00111f33}.panel-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}.panel-head h2{margin:0;font-size:13px;letter-spacing:.08em}.panel-head span{color:#92bdce;font-size:10px;font-weight:800}.status{display:flex;align-items:flex-start;gap:10px}.dot{width:9px;height:9px;margin-top:5px;border-radius:50%;background:#8de8ba;box-shadow:0 0 13px #8de8ba;flex:none}.status strong{font-size:15px}.status p{margin:4px 0 0;color:#a1c0cf;font-size:11px;line-height:1.45}.metric{display:flex;justify-content:space-between;margin:14px 0 7px;color:#a8c5d2;font-size:9px;font-weight:900;letter-spacing:.1em}.bar{height:9px;border:1px solid #31566c;border-radius:99px;background:#061d30;overflow:hidden}.fill{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#53c9d6,#9af0c8);box-shadow:0 0 12px #61e4cf88;transition:width .12s}.tension{height:13px;position:relative;border:1px solid #35596e;border-radius:99px;background:#061c2e;overflow:hidden}.safe{position:absolute;left:23%;width:58%;height:100%;background:#65dfaa38;border-left:1px solid #a5f4cb;border-right:1px solid #a5f4cb}.needle{position:absolute;left:50%;top:-3px;width:4px;height:18px;border-radius:5px;background:#ffdc83;box-shadow:0 0 8px #ffd27b;transform:translateX(-50%)}.buttons{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:15px}.btn{min-height:48px;padding:11px 9px;border-radius:13px;font-weight:950;font-size:11px;letter-spacing:.035em;transition:transform .15s,filter .15s}.btn:active:not(:disabled){transform:scale(.98)}.btn:disabled{opacity:.38;cursor:not-allowed}.primary{color:#063044;background:linear-gradient(135deg,#9cf3d7,#55c2dc);box-shadow:0 8px 20px #45c5bd44}.secondary{background:linear-gradient(135deg,#285776,#17415e);border:1px solid #4b7992;color:#e8fbff}.note{text-align:center;color:#86adbf;font-size:10px;line-height:1.4;margin:9px 0 0}.gear-list{display:grid;gap:9px}.gear{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px;background:#051f33aa;border:1px solid #51809b22;border-radius:13px}.gear-left{display:flex;align-items:center;gap:9px;min-width:0}.gear-icon{display:grid;place-items:center;width:35px;height:35px;flex:none;border-radius:11px;background:#174560;font-size:18px}.gear-name{font-size:11px;font-weight:900}.gear-level{margin-top:3px;font-size:9px;color:#9bbdcc}.upgrade{padding:8px 9px;border:1px solid #47758c;border-radius:9px;background:#194b67;color:#e4faff;font-size:9px;font-weight:900;white-space:nowrap}.upgrade:disabled{opacity:.35}.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.quick button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;min-height:67px;border:1px solid #4b799444;border-radius:13px;background:#123c57;color:#e8faff;font-size:10px;font-weight:850}.quick button span:first-child{font-size:21px}.quick button:hover{background:#1b5875}.footer{text-align:center;margin-top:16px;color:#668ca0;font-size:9px;letter-spacing:.12em}.modal-bg{position:fixed;inset:0;z-index:10;display:none;align-items:center;justify-content:center;padding:15px;background:#00101fc9;backdrop-filter:none}.modal-bg.open{display:flex}.modal{width:min(570px,100%);max-height:82vh;overflow:auto;padding:20px;border:1px solid #a6e2f044;border-radius:22px;background:linear-gradient(150deg,#16445f,#08273e);box-shadow:0 25px 70px #0009}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}.modal-head h2{font-size:17px;margin:0}.close{width:34px;height:34px;border-radius:10px;background:#24536b;font-size:20px}.intro{font-size:11px;color:#a8c7d7;line-height:1.5;margin:0 0 13px}.collection{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.fish-tile{display:flex;align-items:center;gap:10px;padding:11px;border:1px solid #94cfe022;border-radius:12px;background:#061f34aa}.fish-pic{display:grid;place-items:center;width:41px;height:41px;flex:none;border-radius:11px;background:#174660;font-size:23px}.fish-tile b{font-size:11px}.fish-tile small{display:block;margin-top:4px;color:#a0bfce;font-size:9px}.unknown{opacity:.4;filter:grayscale(1)}.sound-row{display:flex;justify-content:space-between;align-items:center;padding:13px;border:1px solid #52819a44;border-radius:12px;background:#082a42;font-size:12px;font-weight:800;margin-bottom:12px}.sound-toggle{width:44px;height:25px;border-radius:99px;padding:3px;background:#355b6e}.sound-toggle:after{content:"";display:block;width:19px;height:19px;border-radius:50%;background:white;transition:transform .18s}.sound-toggle.on{background:#4ac39b}.sound-toggle.on:after{transform:translateX(19px)}.toast{position:fixed;z-index:20;left:50%;bottom:22px;transform:translate(-50%,18px);opacity:0;pointer-events:none;max-width:calc(100% - 25px);padding:12px 17px;border-radius:13px;background:#dffff3;color:#073842;font-size:12px;font-weight:900;box-shadow:0 12px 35px #0006;transition:.2s;text-align:center}.toast.show{opacity:1;transform:translate(-50%,0)}
+/* SVG scenery animation */
+.cloud{animation:cloudMove 48s linear infinite}.cloud.c2{animation-duration:65s;animation-direction:reverse}.wave-a{animation:wave 7s ease-in-out infinite alternate}.wave-b{animation:wave 9s ease-in-out infinite alternate-reverse}.fish-swim{animation:fishSwim 16s linear infinite}.fish-swim.s2{animation-duration:21s;animation-delay:-8s}.bobber{transform-origin:center;animation:bob 1.8s ease-in-out infinite}.water-shimmer{animation:shimmer 4s ease-in-out infinite alternate}.seagull{animation:glide 5s ease-in-out infinite alternate}@keyframes cloudMove{from{transform:translateX(-90px)}to{transform:translateX(120px)}}@keyframes wave{from{transform:translateX(-9px)}to{transform:translateX(12px)}}@keyframes fishSwim{from{transform:translateX(-170px)}to{transform:translateX(1250px)}}@keyframes bob{0%,100%{transform:translateY(-2px)}50%{transform:translateY(4px)}}@keyframes shimmer{from{opacity:.15}to{opacity:.48}}@keyframes glide{from{transform:translate(0,0)}to{transform:translate(14px,-6px)}}
+@media(max-width:980px){.layout{grid-template-columns:minmax(0,1fr) 290px}.panel{padding:14px}}@media(max-width:760px){body{padding:13px 11px 22px}.layout{grid-template-columns:1fr}.sidebar{display:grid;grid-template-columns:1fr 1fr}.sidebar .panel:first-child{grid-column:1/-1}.world{min-height:290px}.topbar{align-items:flex-start}.below{margin-top:10px}}@media(max-width:520px){.topbar{flex-direction:column}.stats{width:100%;justify-content:flex-start}.stat{flex:1;min-width:0;padding:8px}.world{aspect-ratio:4/3;min-height:270px}.world-head{top:9px;left:9px;right:9px}.tag{padding:7px 8px;font-size:8px}.tag.weather{font-size:9px}.scene-message{top:24%;font-size:11px;padding:8px 12px}.world-footer{font-size:9px;padding:10px}.sidebar{grid-template-columns:1fr}.sidebar .panel:first-child{grid-column:auto}.below{grid-template-columns:1fr}.collection{grid-template-columns:1fr 1fr}}
+
+
+/* OCEAN CATCH 2.0 — richer scene, gentle motion, and responsive panels */
+:root{--aqua:#9bf4dd;--gold:#ffdc91}
+body{background:radial-gradient(ellipse at 50% -18%,#2b7085 0,#0b2d47 46%,#041728 100%);background-attachment:fixed}
+.logo{position:relative;isolation:isolate;overflow:hidden}.logo:after{content:"";position:absolute;inset:-60%;z-index:-1;background:linear-gradient(110deg,transparent 38%,#ffffff88 50%,transparent 62%);transform:translateX(-80%) rotate(18deg);animation:logoShine 5.5s ease-in-out infinite}
+@keyframes logoShine{0%,65%{transform:translateX(-80%) rotate(18deg)}100%{transform:translateX(80%) rotate(18deg)}}
+.stat,.panel,.feature,.world-card{backdrop-filter:none}
+.stat{transition:transform .2s,border-color .2s,background .2s}.stat:hover{transform:translateY(-3px);border-color:#8ce9e0aa;background:#0c344dcc}
+.world-card{border-color:#a6f2ec77;box-shadow:0 24px 70px #00101f80,0 0 0 1px #8fe8dc18 inset}
+.world{isolation:isolate;background:linear-gradient(#78cdd8,#0a6684);transition:filter 1.5s}
+.world svg{filter:saturate(1.09) contrast(1.02)}
+.world:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,#ffffff16,transparent 25% 72%,#00284020);mix-blend-mode:screen;z-index:1}
+.world-head{z-index:4}.tag{box-shadow:0 6px 20px #06273a33;letter-spacing:.08em}.tag.weather{background:#092e46b8}
+.scene-message{z-index:4;box-shadow:0 10px 35px #00233d55,0 0 25px #8cf8df22;animation:messageFloat 4s ease-in-out infinite}
+@keyframes messageFloat{0%,100%{translate:0 0}50%{translate:0 -4px}}
+.world-footer{background:linear-gradient(90deg,#06273deF,#0e4960ef);border-top:1px solid #a5eee522}
+.panel{border-color:#6eb4cd44;background:linear-gradient(150deg,#16415cf5,#08263df5);box-shadow:0 15px 38px #00101f44,0 1px 0 #ffffff08 inset;transition:transform .2s,border-color .2s}.panel:hover{border-color:#75dacc66}
+.panel-head h2{letter-spacing:.07em}.quick{grid-template-columns:repeat(4,minmax(0,1fr))}.quick button{transition:transform .18s,background .18s,border-color .18s}.quick button:hover{transform:translateY(-3px);border-color:#8ce9d6aa}
+.btn,.upgrade{transition:transform .16s,filter .16s,box-shadow .16s}.btn:hover:not(:disabled),.upgrade:hover:not(:disabled){filter:brightness(1.12);transform:translateY(-2px);box-shadow:0 9px 22px #00111f55}
+.primary{background:linear-gradient(135deg,#b3ffe4,#55c9e1 70%,#63b9ec)}
+.feature{border-color:#68b5c744;background:linear-gradient(135deg,#0d3852dd,#0a2940dd);box-shadow:0 12px 25px #00111f22;transition:transform .2s,border-color .2s}.feature:hover{transform:translateY(-3px);border-color:#8ae5d588}.feature-icon{box-shadow:0 0 18px #52c6c044}
+/* ambient SVG elements */
+.bubble-field{opacity:.55}.bubble{fill:none;stroke:#d8fff5;stroke-width:2;animation:bubbleRise 7s ease-in infinite}.bubble.b2{animation-duration:9s;animation-delay:-3s}.bubble.b3{animation-duration:11s;animation-delay:-7s}.bubble.b4{animation-duration:8s;animation-delay:-4s}
+@keyframes bubbleRise{0%{transform:translateY(28px);opacity:0}15%{opacity:.65}85%{opacity:.5}100%{transform:translateY(-145px);opacity:0}}
+.small-fish{transform-box:fill-box;transform-origin:center;animation:fishWiggle 1.6s ease-in-out infinite alternate}.small-fish.f2{animation-delay:-.8s;animation-duration:1.9s}
+@keyframes fishWiggle{from{translate:0 -2px}to{translate:0 3px}}
+#sunDisk{transform-box:fill-box;transform-origin:center;animation:sunPulse 7s ease-in-out infinite}.sun-rays{transform-box:fill-box;transform-origin:center;animation:sunSpin 70s linear infinite}
+@keyframes sunPulse{0%,100%{scale:1}50%{scale:1.045}}@keyframes sunSpin{to{rotate:360deg}}
+#ripples{opacity:.3}.ripple{fill:none;stroke:#dffff8;stroke-width:2;transform-box:fill-box;transform-origin:center;animation:ripple 2.5s ease-out infinite}.ripple.r2{animation-delay:1.2s}
+@keyframes ripple{0%{scale:.45;opacity:.65}100%{scale:1.8;opacity:0}}
+#rainFx{opacity:0;transition:opacity 1s}.world.rain #rainFx{opacity:.72}.raindrop{stroke:#d4ffff;stroke-width:2;stroke-linecap:round;animation:rainFall .85s linear infinite}.raindrop:nth-child(2n){animation-delay:-.4s}.raindrop:nth-child(3n){animation-delay:-.65s}
+@keyframes rainFall{from{translate:0 -30px;opacity:0}20%{opacity:.8}to{translate:-15px 100px;opacity:0}}
+#moon{opacity:0;transition:opacity 1.5s}.stars{opacity:0;transition:opacity 1.5s}.world.night #moon,.world.night .stars{opacity:1}.world.night #sunDisk,.world.night #sunHalo{opacity:0}.world.night #skyStop1{stop-color:#14294d}.world.night #skyStop2{stop-color:#334c70}.world.night #skyStop3{stop-color:#596b7f}.world.night #seaStop1{stop-color:#255a70}.world.night #seaStop2{stop-color:#123f61}.world.night #seaStop3{stop-color:#092943}.world.night svg{filter:none}
+.world.deep svg,.world.arctic svg,.world.kelp svg,.world.volcano svg{filter:none}
+.world.casting #bobber{animation:bobberDrop .8s ease-out 1}.world.waiting #bobber{animation:bob 1.2s ease-in-out infinite}.world.fight #bobber{animation:bobberBite .32s ease-in-out infinite}.world.fight #ripples{opacity:1}.world.result #bobber{animation:bobberWin .55s ease-in-out 3}
+@keyframes bobberDrop{0%{translate:-150px -110px;scale:1.2}100%{translate:0 0;scale:1}}@keyframes bobberBite{0%,100%{translate:0 0}50%{translate:0 10px;rotate:8deg}}@keyframes bobberWin{0%,100%{translate:0 0}50%{translate:0 -18px;rotate:-10deg}}
+.catch-banner{position:absolute;z-index:5;left:50%;bottom:17px;translate:-50% 20px;opacity:0;pointer-events:none;display:flex;align-items:center;gap:12px;min-width:min(310px,85%);padding:12px 17px;border:1px solid #fff8;border-radius:17px;background:linear-gradient(115deg,#062b46eF,#16758beF);box-shadow:0 15px 40px #00111f77,0 0 28px #8dffe366;transition:opacity .3s,translate .3s}.catch-banner.show{opacity:1;translate:-50% 0}.catch-emoji{font-size:37px;filter:drop-shadow(0 4px 8px #001c2b66);animation:trophyBounce .8s ease-in-out infinite alternate}.catch-copy b{display:block;font-size:13px}.catch-copy small{display:block;margin-top:4px;color:#c6f4ee;font-size:10px}.catch-copy strong{color:#ffdf8c}
+@keyframes trophyBounce{to{transform:translateY(-5px) rotate(5deg) scale(1.05)}}
+.side-title{display:flex;align-items:center;gap:7px}.zone-list{display:grid;gap:8px}.zone-choice{display:flex;align-items:center;gap:10px;width:100%;padding:10px;border:1px solid #5790a333;border-radius:13px;background:#061f35aa;text-align:left;transition:.18s}.zone-choice:hover:not(:disabled){transform:translateX(3px);border-color:#8de9d5aa;background:#10405a}.zone-choice.active{border-color:#78e6d0;background:linear-gradient(100deg,#14556a,#10334d);box-shadow:0 0 0 1px #8fe9d433 inset}.zone-choice:disabled{opacity:.48;cursor:not-allowed}.zone-emoji{display:grid;place-items:center;width:39px;height:39px;border-radius:12px;background:#194b62;font-size:22px;flex:none}.zone-info{flex:1;min-width:0}.zone-info b{display:block;font-size:11px}.zone-info small{display:block;margin-top:4px;color:#9bbccb;font-size:9px}.zone-state{font-size:9px;font-weight:900;color:#bcece1}.quest-card{padding:12px;border:1px solid #5b8ba033;border-radius:14px;background:linear-gradient(130deg,#08263bdd,#10405a99)}.quest-top{display:flex;justify-content:space-between;gap:8px;align-items:center}.quest-top b{font-size:11px}.quest-top span{font-size:10px;color:#ffdc91;font-weight:900}.quest-card p{margin:7px 0 9px;color:#a6c5d2;font-size:10px}.quest-progress{height:8px;border-radius:99px;background:#031b2d;overflow:hidden}.quest-progress i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#5bd2d0,#b2f6cd);transition:width .25s}.quest-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:9px}.quest-bottom small{font-size:9px;color:#9fc1d0}.quest-claim{padding:7px 10px;border-radius:9px;background:linear-gradient(135deg,#ffe3a2,#e9a94d);color:#593a15;font-size:9px;font-weight:950}.quest-claim:disabled{opacity:.38;filter:grayscale(.6)}.shop-grid{display:grid;gap:9px}.shop-item{display:flex;align-items:center;gap:11px;padding:12px;border:1px solid #5c91a333;border-radius:13px;background:#08263c}.shop-item .gear-icon{width:42px;height:42px;font-size:21px}.shop-item>div:nth-child(2){flex:1}.shop-item b{font-size:11px}.shop-item small{display:block;margin-top:4px;color:#9dbccb;font-size:9px;line-height:1.4}.shop-buy{padding:9px 11px;border:1px solid #7a9c88;border-radius:9px;background:linear-gradient(135deg,#ffe2a1,#d9a253);color:#4b3317;font-size:10px;font-weight:950;white-space:nowrap}.shop-buy:disabled{opacity:.4;filter:grayscale(1)}
+.modal{border-color:#9be9e577;background:linear-gradient(150deg,#174b67,#07253e);box-shadow:0 30px 90px #000b,0 0 35px #61d3cb22}.fish-tile{transition:transform .18s,border-color .18s}.fish-tile:hover{transform:translateY(-2px);border-color:#8cebd788}.fish-pic{box-shadow:inset 0 0 15px #65d9d222}
+.toast{background:linear-gradient(100deg,#dffff3,#b9f3e7);box-shadow:0 12px 40px #0008,0 0 20px #a1ffe455}
+@media(max-width:980px){.sidebar{grid-template-columns:1fr 1fr}.sidebar .panel:first-child{grid-column:1/-1}}
+@media(max-width:760px){.sidebar{display:grid;grid-template-columns:1fr 1fr}.sidebar .panel:first-child{grid-column:1/-1}}
+@media(max-width:520px){.quick{grid-template-columns:repeat(4,minmax(0,1fr))}.quick button{min-height:63px;font-size:9px;padding:6px 2px}.quick button span:first-child{font-size:19px}.catch-banner{bottom:10px;padding:9px 12px}.catch-emoji{font-size:30px}.zone-choice{padding:8px}}
+
+
+
+/* OCEAN CATCH — visible motion layer. Kept active so the world still animates on systems
+   that report reduced-motion; movement is gentle and does not affect game performance. */
+.world .cloud{animation:cloudDriftOne 25s ease-in-out infinite alternate!important;will-change:transform}
+.world .cloud.c2{animation:cloudDriftTwo 34s ease-in-out infinite alternate-reverse!important}
+.world .wave-a{animation:waveSurgeOne 4.8s ease-in-out infinite alternate!important;transform-box:fill-box;will-change:transform}
+.world .wave-b{animation:waveSurgeTwo 6.2s ease-in-out infinite alternate-reverse!important;transform-box:fill-box;will-change:transform}
+.world .water-shimmer{animation:waterGlitter 2.8s ease-in-out infinite alternate!important}
+.world .fish-swim{animation:fishCross 12s linear infinite!important;will-change:transform}
+.world .fish-swim.s2{animation:fishCrossTwo 15s linear -7s infinite!important}
+.world .fish-tail{transform-box:fill-box;transform-origin:100% 50%;animation:tailKick .28s ease-in-out infinite alternate!important}
+.world .small-fish{animation:reefFishBob 1.15s ease-in-out infinite alternate!important}
+.world .small-fish.f2{animation-duration:1.4s!important}
+.world .bubble{animation:bubbleLift 4.8s ease-in infinite!important;will-change:transform,opacity}
+.world .bubble.b2{animation-duration:5.5s!important;animation-delay:-2.1s!important}
+.world .bubble.b3{animation-duration:6.1s!important;animation-delay:-4s!important}
+.world .bubble.b4{animation-duration:4.3s!important;animation-delay:-1.2s!important}
+.world .bobber{transform-box:fill-box;transform-origin:center;animation:floatPhao 1.35s ease-in-out infinite!important;will-change:transform}
+.world .seagull{animation:gullGlide 4.2s ease-in-out infinite alternate!important}
+.world #angler{transform-box:fill-box;transform-origin:50% 100%;animation:anglerSway 3.5s ease-in-out infinite alternate!important}
+.world #fishingRod{transform-box:view-box;transform-origin:21.6% 51.3%;animation:rodSway 2.4s ease-in-out infinite alternate!important}
+.world #sunDisk{animation:sunBreath 5s ease-in-out infinite!important}
+.world .sun-rays{animation:sunOrbit 55s linear infinite!important}
+.world #ripples .ripple{animation:rippleOut 2.1s ease-out infinite!important}
+.world #ripples .ripple.r2{animation-delay:1.05s!important}
+.world #splashFx{opacity:0;transform-box:fill-box;transform-origin:center;pointer-events:none}
+.world.casting #splashFx,.world.fight #splashFx{animation:splashPop .75s ease-out infinite!important}
+.world.casting #bobber{animation:castPhao .8s cubic-bezier(.2,.8,.3,1) 1!important}
+.world.fight #bobber{animation:fishBitePhao .28s ease-in-out infinite!important}
+.world.result #bobber{animation:winPhao .55s ease-in-out 3!important}
+.world.fight #fishingRod{animation:rodFight 0.38s ease-in-out infinite alternate!important}
+.world.waiting #ripples{opacity:.85!important}
+.world.night .stars{animation:starsTwinkle 2.8s ease-in-out infinite alternate!important}
+.world.rain #rainFx{opacity:.85!important}
+.logo:after{animation:logoShine 4.5s ease-in-out infinite!important}
+.scene-message{animation:messageFloat 3.2s ease-in-out infinite!important}
+.catch-emoji{animation:trophyBounce .65s ease-in-out infinite alternate!important}
+@keyframes cloudDriftOne{from{transform:translateX(-34px)}to{transform:translateX(42px)}}
+@keyframes cloudDriftTwo{from{transform:translateX(45px)}to{transform:translateX(-50px)}}
+@keyframes waveSurgeOne{from{transform:translateX(-27px) translateY(0)}to{transform:translateX(30px) translateY(3px)}}
+@keyframes waveSurgeTwo{from{transform:translateX(34px) translateY(0)}to{transform:translateX(-32px) translateY(-3px)}}
+@keyframes waterGlitter{from{opacity:.16}to{opacity:.42}}
+@keyframes fishCross{from{transform:translateX(-210px)}to{transform:translateX(1260px)}}
+@keyframes fishCrossTwo{from{transform:translateX(1200px) scaleX(-1)}to{transform:translateX(-520px) scaleX(-1)}}
+@keyframes tailKick{from{rotate:-13deg}to{rotate:13deg}}
+@keyframes reefFishBob{from{translate:0 -3px}to{translate:0 4px}}
+@keyframes bubbleLift{0%{transform:translateY(26px) scale(.65);opacity:0}18%{opacity:.7}82%{opacity:.45}100%{transform:translateY(-165px) scale(1.2);opacity:0}}
+@keyframes floatPhao{0%,100%{transform:translateY(-3px) rotate(-2deg)}50%{transform:translateY(6px) rotate(3deg)}}
+@keyframes gullGlide{from{transform:translate(0,2px)}to{transform:translate(30px,-12px)}}
+@keyframes anglerSway{from{rotate:-1deg}to{rotate:1.3deg}}
+@keyframes rodSway{from{rotate:-1.2deg}to{rotate:1.4deg}}
+@keyframes sunBreath{0%,100%{scale:1}50%{scale:1.07}}
+@keyframes sunOrbit{to{rotate:360deg}}
+@keyframes rippleOut{0%{scale:.35;opacity:.7}100%{scale:2.05;opacity:0}}
+@keyframes splashPop{0%,100%{opacity:0;scale:.6}25%{opacity:.9;scale:1.1}70%{opacity:.25;scale:1.35}}
+@keyframes castPhao{0%{translate:-155px -118px;scale:1.25}100%{translate:0 0;scale:1}}
+@keyframes fishBitePhao{0%,100%{translate:0 0;rotate:-3deg}50%{translate:0 13px;rotate:9deg}}
+@keyframes winPhao{0%,100%{translate:0 0}50%{translate:0 -22px;rotate:-12deg}}
+@keyframes rodFight{from{rotate:-2deg}to{rotate:3deg}}
+@keyframes starsTwinkle{from{opacity:.45}to{opacity:1}}
+
+
+/* Five fishing grounds, shoals and low-cost visual presets */
+.world.kelp #seaStop1{stop-color:#39aa9a}.world.kelp #seaStop2{stop-color:#176d70}.world.volcano #seaStop1{stop-color:#b36a56}.world.volcano #seaStop2{stop-color:#713b55}
+.world.kelp .water-shimmer{opacity:.22}.world.volcano .water-shimmer{opacity:.2}
+.fish-school{animation:schoolDrift 20s linear infinite;transform-box:fill-box;transform-origin:center;}
+.fish-school.school-b{animation-duration:26s;animation-direction:reverse;animation-delay:-8s}
+.fish-school.school-c{animation-duration:31s;animation-delay:-14s}
+@keyframes schoolDrift{from{translate:-110px 0}to{translate:160px -8px}}
+.quality-smooth .sun-rays,.quality-smooth .stars,.quality-smooth .bubble-field,.quality-smooth .seagull,.quality-smooth .water-shimmer{animation:none!important;display:none!important}
+.quality-smooth .cloud,.quality-smooth .cloud.c2{animation-duration:70s!important}
+.quality-smooth .wave-a,.quality-smooth .wave-b{animation-duration:10s!important}
+.quality-smooth .fish-school{animation-duration:38s!important}
+.quality-balanced .sun-rays,.quality-balanced .bubble-field{animation-duration:7s!important}
+.quality-beautiful .fish-school{animation-duration:15s!important}
+.quality-beautiful .bubble{animation-duration:3.7s!important}
+.quality-box{padding:12px;border:1px solid #52819a44;border-radius:13px;background:#082a42;margin:0 0 12px}
+.quality-box>b{display:block;font-size:12px;margin-bottom:10px}
+.quality-options{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.quality-option{padding:9px 4px;border:1px solid #4a7890;border-radius:9px;background:#123c57;color:#e7faff;font-size:10px;font-weight:900}
+.quality-option.active{border-color:#83e8d4;background:#176078;box-shadow:0 0 0 1px #83e8d455 inset}
+.quality-box small{display:block;color:#a5c3d2;font-size:9px;line-height:1.45;margin-top:9px}
+.gear .upgrade{min-width:82px}
+@media(max-width:520px){.gear{padding:8px}.gear-level{max-width:150px;line-height:1.35}.gear .upgrade{min-width:75px;padding:8px 6px}}
+
+
+/* Dense marine-life layer: many procedural fish, light caustics, reef life */
+#fishSwarm,#caustics{pointer-events:none}
+.fish-proc{transform-origin:center;will-change:transform,translate;animation:swimX linear infinite;filter:hue-rotate(calc(var(--hue-base,0deg) + var(--hue,0deg))) saturate(1.35) brightness(1.02)}
+.fish-proc.rev{animation-name:swimXRev}
+.fish-proc.far{opacity:.6;filter:blur(1.1px) hue-rotate(calc(var(--hue-base,0deg) + var(--hue,0deg))) saturate(1.1) brightness(.9)}
+.fish-proc.near{filter:hue-rotate(calc(var(--hue-base,0deg) + var(--hue,0deg))) saturate(1.45) brightness(1.08) drop-shadow(0 2px 3px #00111f33)}
+@keyframes swimX{0%{translate:-240px calc(var(--y) - 6px)}25%{translate:220px calc(var(--y) + 7px)}50%{translate:620px calc(var(--y) - 7px)}75%{translate:980px calc(var(--y) + 6px)}100%{translate:1340px calc(var(--y) - 6px)}}
+@keyframes swimXRev{0%{translate:1340px calc(var(--y) - 6px)}25%{translate:980px calc(var(--y) + 6px)}50%{translate:620px calc(var(--y) - 7px)}75%{translate:220px calc(var(--y) + 7px)}100%{translate:-240px calc(var(--y) - 6px)}}
+.caustic{fill:#eafff5;filter:blur(6px);animation:causticDrift 7s ease-in-out infinite alternate}
+@keyframes causticDrift{from{opacity:.12;translate:-14px 0}to{opacity:.3;translate:14px 6px}}
+.jelly-drift{transform-box:fill-box;transform-origin:center;animation:jellyPulse 3.4s ease-in-out infinite alternate}
+@keyframes jellyPulse{from{translate:0 -4px;scale:1 1}to{translate:6px 5px;scale:1.05 .96}}
+.world.reef{--hue-base:0deg}.world.deep{--hue-base:205deg}.world.arctic{--hue-base:150deg}.world.kelp{--hue-base:92deg}.world.volcano{--hue-base:322deg}
+.quality-smooth .fish-proc.far,.quality-smooth .caustic{display:none}
+
+/* Combo streak, hooked-fish silhouette & rare-catch celebration */
+#hookedFish{opacity:0;transition:opacity .25s;pointer-events:none;transform-origin:center;transform-box:fill-box}
+.world.fight #hookedFish{opacity:.88;animation:fishStruggle .3s ease-in-out infinite alternate}
+@keyframes fishStruggle{from{rotate:-9deg}to{rotate:9deg}}
+#sparkleBurst{pointer-events:none}
+@keyframes sparkleFly{0%{opacity:0;scale:.3}35%{opacity:1;scale:1}100%{opacity:0;scale:1.5}}
+.catch-banner.epic{box-shadow:0 0 34px #c58bf2aa,0 15px 40px #00111f77;border-color:#dcb6ff}
+.catch-banner.legend{box-shadow:0 0 44px #ffd35bcc,0 15px 40px #00111f77;border-color:#ffe29a}
+#streakTag{background:#20492ea8}
+
+/* Lively reef life, water light & ambient breaching */
+.reef-sway{transform-box:fill-box;transform-origin:50% 100%;animation:reefSway 5s ease-in-out infinite alternate}
+@keyframes reefSway{from{rotate:-5deg}to{rotate:6deg}}
+.reef-pulse{transform-box:fill-box;transform-origin:center;animation:reefPulse 3.2s ease-in-out infinite alternate}
+@keyframes reefPulse{from{scale:1}to{scale:1.12}}
+.god-ray{transform-box:fill-box;transform-origin:50% 0%;animation:rayShimmer 4.5s ease-in-out infinite alternate}
+@keyframes rayShimmer{from{rotate:-1.5deg}to{rotate:2deg}}
+#breachLayer,#rainRipples{pointer-events:none}
+.breach-fish{transform-box:fill-box;transform-origin:center;animation:breachJump 1.25s cubic-bezier(.3,.6,.35,1) forwards;filter:hue-rotate(calc(var(--hue-base,0deg) + var(--hue,0deg))) saturate(1.3)}
+@keyframes breachJump{0%{translate:var(--bx) 392px;scale:.55 .4;opacity:0}8%{opacity:1}35%{translate:var(--bx) 300px;scale:.8 .95;rotate:-8deg}60%{translate:var(--bx) 300px;scale:.82 .9;rotate:6deg}100%{translate:var(--bx) 392px;scale:.5 .35;opacity:0}}
+.world.result #hookedFish{opacity:.95;animation:catchLeap .6s ease-out forwards}
+@keyframes catchLeap{0%{translate:0 0;rotate:0deg}40%{translate:0 -55px;rotate:-18deg}100%{translate:0 -10px;rotate:-6deg}}
+
+/* Glinting water & shooting stars */
+.shoot-trail{opacity:0;animation:shootAcross .85s ease-in forwards}
+@keyframes shootAcross{0%{opacity:0;translate:0 0}10%{opacity:1}100%{opacity:0;translate:140px 66px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar"><div class="brand"><div class="logo">🎣</div><div><h1>OCEAN CATCH</h1><p>CUỘC PHIÊU LƯU CÂU CÁ</p></div></div><div class="stats"><div class="stat"><i>🪙</i><div><small>VÀNG</small><b id="coinCount">120</b></div></div><div class="stat"><i>🐟</i><div><small>ĐÃ CÂU</small><b id="catchCount">0</b></div></div><div class="stat"><i>🏆</i><div><small>KỶ LỤC</small><b id="recordWeight">0 kg</b></div></div></div></header>
+<main class="layout">
+<section class="maincol">
+<div class="world-card"><div class="world-head"><div class="tag" id="areaLabel">📍 VỊNH SAN HÔ · KHU VỰC 01</div><div class="tag" id="streakTag" style="display:none">🔥 Chuỗi x1</div><div class="tag weather" id="weatherLabel">☀️ Trời quang · Biển êm</div></div>
+<div class="world" id="world">
+<svg viewBox="0 0 1100 620" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Khung cảnh biển nhiệt đới với cầu gỗ, người câu cá, những đàn cá và sóng biển">
+<defs>
+ <linearGradient id="sky" x2="0" y2="1"><stop id="skyStop1" stop-color="#69bedb"/><stop id="skyStop2" offset=".65" stop-color="#b2e4df"/><stop id="skyStop3" offset="1" stop-color="#f0e7bf"/></linearGradient>
+ <linearGradient id="sea" x2="0" y2="1"><stop id="seaStop1" stop-color="#4fc3c3"/><stop id="seaStop2" offset=".2" stop-color="#2498aa"/><stop id="seaStop3" offset=".65" stop-color="#126985"/><stop offset="1" stop-color="#073957"/></linearGradient>
+ <linearGradient id="wood" x2="0" y2="1"><stop stop-color="#b68152"/><stop offset="1" stop-color="#68452f"/></linearGradient>
+ <radialGradient id="sunGlow"><stop stop-color="#fff7c9" stop-opacity=".8"/><stop offset="1" stop-color="#fff7c9" stop-opacity="0"/></radialGradient>
+ <linearGradient id="ray" x2=".4" y2="1"><stop stop-color="#c5fff3" stop-opacity=".4"/><stop offset="1" stop-color="#c5fff3" stop-opacity="0"/></linearGradient>
+ <linearGradient id="fishGrad" x2="0" y2="1"><stop offset="0" stop-color="#ffe3b8"/><stop offset=".45" stop-color="#ff9d5c"/><stop offset="1" stop-color="#c85f32"/></linearGradient>
+<g id="fishTpl"><ellipse cx="0" cy="0" rx="21" ry="10.5" fill="url(#fishGrad)"/><path class="fish-tail" d="M-18 0l-16-11v22Z" fill="#c85f32"/><path d="M-3 -8.5Q8 -16 17 -8Q7 -4 -3 -8.5Z" fill="#ffcf96" opacity=".9"/><path d="M1 7Q9 15 17 10Q8 4 1 7Z" fill="#ffb877" opacity=".85"/><ellipse cx="-6" cy="-5" rx="7" ry="3" fill="#fff" opacity=".35"/><path d="M-9 -5Q0 -9 9 -5" stroke="#fff6e3" stroke-width="2" fill="none" opacity=".55"/><path d="M3 -7Q5.5 0 3 7" stroke="#0003" stroke-width="1.6" fill="none"/><circle cx="11.5" cy="-2.6" r="2.4" fill="#16304a"/><circle cx="12.2" cy="-3.2" r=".8" fill="#fff"/></g>
+</defs>
+<rect width="1100" height="620" fill="url(#sky)"/>
+<circle id="sunHalo" cx="850" cy="115" r="150" fill="url(#sunGlow)"/><g class="sun-rays" stroke="#fff2bb" stroke-width="5" stroke-linecap="round" opacity=".35"><path d="M850 52v-15M850 193v-15M787 115h-15M928 115h-15M805 70l-11-11M906 171l-11-11M895 70l11-11M805 160l-11 11"/></g><circle id="sunDisk" cx="850" cy="115" r="43" fill="#fff2bb"/><circle id="moon" cx="850" cy="115" r="34" fill="#e8f2ff"/><g class="stars" fill="#fff4ca"><circle cx="720" cy="80" r="3"/><circle cx="940" cy="65" r="3"/><circle cx="1020" cy="160" r="2.5"/><circle cx="650" cy="150" r="2"/><circle cx="780" cy="210" r="2"/></g>
+<g id="shootingStar"></g>
+<g class="cloud" fill="#f5ffff" opacity=".78"><ellipse cx="160" cy="112" rx="90" ry="25"/><circle cx="120" cy="94" r="34"/><circle cx="165" cy="76" r="45"/><circle cx="210" cy="100" r="29"/></g>
+<g class="cloud c2" fill="#f5ffff" opacity=".55"><ellipse cx="610" cy="180" rx="72" ry="19"/><circle cx="580" cy="166" r="25"/><circle cx="620" cy="151" r="34"/><circle cx="653" cy="174" r="23"/></g>
+<!-- islands -->
+<path d="M0 333 Q100 235 224 300 Q290 250 420 326 L470 365H0Z" fill="#568d7d"/><path d="M0 348 Q110 284 211 321 Q306 272 433 350" fill="none" stroke="#8fc2a0" stroke-width="13" opacity=".4"/>
+<path d="M680 360 Q790 220 924 298 Q1008 250 1100 290V390H680Z" fill="#4c8979"/><path d="M724 343Q852 265 933 319Q1020 270 1098 315" fill="none" stroke="#a7c89a" stroke-width="12" opacity=".5"/>
+<g fill="#397966"><circle cx="810" cy="293" r="29"/><circle cx="865" cy="275" r="38"/><circle cx="926" cy="294" r="28"/><circle cx="1007" cy="286" r="34"/></g>
+<!-- water --> <rect y="350" width="1100" height="270" fill="url(#sea)"/>
+<path d="M0 351Q120 339 240 352T480 351T720 352T960 350T1200 352V370H0Z" fill="#a3ead8" opacity=".36"/>
+<path class="god-ray" style="animation-delay:-.6s" d="M60 350L15 620H155L200 350Z" fill="url(#ray)" opacity=".55"/><path class="god-ray" style="animation-delay:-2.1s;animation-duration:5.2s" d="M390 350L340 620H500L540 350Z" fill="url(#ray)" opacity=".4"/><path class="god-ray" style="animation-delay:-3.4s;animation-duration:4.1s" d="M850 350L780 620H940L1000 350Z" fill="url(#ray)" opacity=".42"/>
+<g class="wave-a" fill="none" stroke="#b8fff0" stroke-width="5" opacity=".38"><path d="M0 386Q75 374 150 386T300 386T450 386T600 386T750 386T900 386T1050 386T1200 386"/><path d="M-30 428Q40 418 110 428T250 428T390 428T530 428T670 428T810 428T950 428T1090 428" stroke-width="3"/></g>
+<g class="wave-b" fill="none" stroke="#8be7db" stroke-width="3" opacity=".32"><path d="M-20 470Q55 455 130 470T280 470T430 470T580 470T730 470T880 470T1030 470T1180 470"/><path d="M0 535Q75 522 150 535T300 535T450 535T600 535T750 535T900 535T1050 535"/></g>
+<g class="water-shimmer" fill="#d9fff0" opacity=".3"><path d="M540 402h55M650 440h37M880 389h46M700 510h70M450 560h42M1000 475h44M820 405h38M860 430h30M940 455h34M30 420h30M160 450h26" stroke="#d9fff0" stroke-width="4" stroke-linecap="round"/></g>
+<g id="caustics"></g>
+<g id="rainRipples"></g>
+<!-- swimming fish -->
+<g class="fish-swim" transform="translate(0 0)" fill="#f6a36d"><ellipse cx="160" cy="470" rx="26" ry="13"/><path class="fish-tail" d="M137 470l-24-17v34Z"/><circle cx="173" cy="466" r="2.5" fill="#163a4d"/></g>
+<g class="fish-swim s2" fill="#91dcdf"><ellipse cx="510" cy="530" rx="34" ry="15"/><path class="fish-tail" d="M480 530l-25-18v36Z"/><circle cx="527" cy="526" r="3" fill="#163a4d"/></g>
+<g class="fish-school school-a" fill="#ffe1a0" opacity=".85"><g transform="translate(0 0)"><ellipse cx="245" cy="495" rx="11" ry="5"/><path d="M235 495l-8-6v12Z"/><circle cx="250" cy="493" r="1" fill="#24475a"/></g><g transform="translate(34 -13)"><ellipse cx="245" cy="495" rx="9" ry="4"/><path d="M237 495l-7-5v10Z"/></g><g transform="translate(65 9)"><ellipse cx="245" cy="495" rx="10" ry="4.5"/><path d="M236 495l-8-5v10Z"/></g><g transform="translate(96 -5)"><ellipse cx="245" cy="495" rx="9" ry="4"/><path d="M237 495l-7-5v10Z"/></g></g>
+<g class="fish-school school-b" fill="#c3efff" opacity=".75"><g transform="translate(0 0)"><ellipse cx="760" cy="555" rx="12" ry="5"/><path d="M749 555l-9-6v12Z"/></g><g transform="translate(31 14)"><ellipse cx="760" cy="555" rx="9" ry="4"/><path d="M752 555l-7-5v10Z"/></g><g transform="translate(63 -11)"><ellipse cx="760" cy="555" rx="10" ry="4.5"/><path d="M751 555l-8-5v10Z"/></g><g transform="translate(92 5)"><ellipse cx="760" cy="555" rx="8" ry="3.5"/><path d="M753 555l-7-4v8Z"/></g></g>
+<g class="fish-school school-c" fill="#f8b7a3" opacity=".72"><g transform="translate(0 0)"><ellipse cx="430" cy="590" rx="10" ry="4"/><path d="M421 590l-7-5v10Z"/></g><g transform="translate(27 -8)"><ellipse cx="430" cy="590" rx="8" ry="3.5"/><path d="M423 590l-7-4v8Z"/></g><g transform="translate(55 7)"><ellipse cx="430" cy="590" rx="9" ry="4"/><path d="M422 590l-7-5v10Z"/></g></g>
+<g transform="translate(0 0)" opacity=".4" fill="#d8f5d8"><ellipse cx="920" cy="585" rx="19" ry="8"/><path d="M903 585l-15-11v22Z"/></g>
+<g id="fishSwarm"></g>
+<!-- tiny reef fish and rising bubbles -->
+<g class="small-fish" fill="#ffd27c"><ellipse cx="570" cy="485" rx="14" ry="7"/><path class="fish-tail" d="M558 485l-11-8v16Z"/><circle cx="577" cy="483" r="1.5" fill="#17435a"/></g>
+<g class="small-fish f2" fill="#ffb2a0"><ellipse cx="350" cy="560" rx="12" ry="6"/><path class="fish-tail" d="M340 560l-10-7v14Z"/><circle cx="356" cy="558" r="1.4" fill="#17435a"/></g>
+<g class="bubble-field" id="bubbleField"><circle class="bubble b1" cx="600" cy="580" r="5"/><circle class="bubble b2" cx="630" cy="560" r="3"/><circle class="bubble b3" cx="930" cy="595" r="5"/><circle class="bubble b4" cx="970" cy="570" r="2.5"/><circle class="bubble b2" cx="520" cy="600" r="3.5"/></g>
+<g id="ripples"><ellipse class="ripple" cx="760" cy="400" rx="17" ry="5"/><ellipse class="ripple r2" cx="760" cy="400" rx="17" ry="5"/></g>
+<g id="rainFx" fill="none"><path class="raindrop" d="M80 190l-9 26M190 60l-9 26M300 220l-9 26M410 105l-9 26M520 180l-9 26M630 80l-9 26M740 225l-9 26M860 55l-9 26M980 205l-9 26M1070 115l-9 26M140 300l-9 26M360 310l-9 26M590 285l-9 26M800 300l-9 26M1020 315l-9 26"/></g>
+<!-- seabirds --> <g class="seagull" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".85"><path d="M360 230q18-20 36 0q18-20 36 0"/><path d="M470 255q13-15 26 0q13-15 26 0"/></g>
+<!-- underwater plants -->
+<path class="reef-sway" style="animation-duration:4.8s" d="M1010 620q-10-50 18-92q-12 48 8 92" stroke="#4ab99d" stroke-width="7" fill="none" stroke-linecap="round" opacity=".6"/>
+<path class="reef-sway" style="animation-duration:4s;animation-delay:-1.6s" d="M1042 620q15-48-5-83q28 40 18 83" stroke="#4ab99d" stroke-width="7" fill="none" stroke-linecap="round" opacity=".6"/>
+<path class="reef-sway" style="animation-duration:5.4s;animation-delay:-2.3s" d="M310 620q-9-42 12-65q-12 39 7 65" stroke="#4ab99d" stroke-width="7" fill="none" stroke-linecap="round" opacity=".6"/>
+<!-- coral, starfish, crab & jellyfish -->
+<g opacity=".88"><path class="reef-sway" style="animation-duration:4.2s" d="M52 620q4-36 27-36t23 36Z" fill="#ff7f6b"/><path class="reef-sway" style="animation-duration:3.6s;animation-delay:-1s" d="M96 620q3-27 21-27t17 27Z" fill="#ffab6b"/><circle cx="72" cy="594" r="4" fill="#ffe3b0"/></g>
+<g class="reef-pulse" fill="#ffd36b"><path d="M248 610l8-15 4 15 9-10-2 15 11-5-6 13h-24Z"/></g>
+<g class="reef-pulse" style="animation-duration:1.9s" stroke="#c0523f" stroke-width="3" stroke-linecap="round" fill="none"><ellipse cx="1028" cy="604" rx="13" ry="7" fill="#c0523f" stroke="none"/><path d="M1016 604h-9M1041 604h9M1021 597l-6-6M1036 597l6-6M1021 611l-6 6M1036 611l6 6"/></g>
+<g class="jelly-drift" opacity=".55" stroke="#d9c9ff" stroke-width="2" fill="none"><ellipse cx="880" cy="458" rx="16" ry="12" fill="#d9c9ff" stroke="none"/><path d="M868 464q2 20-3 34M876 466q1 22-2 36M884 466q0 22 2 36M892 464q3 20 6 32"/></g>
+<!-- dock platform and posts -->
+<g><path d="M-30 398H460L480 460H-30Z" fill="#503b32"/><path d="M-30 397H460L451 426H-30Z" fill="url(#wood)" stroke="#593e2c" stroke-width="5"/><g stroke="#6e4a34" stroke-width="4"><path d="M45 399v27M116 399v27M187 399v27M258 399v27M329 399v27M400 399v27"/></g><path d="M20 456v128M160 456v128M300 456v128M440 456v128" stroke="#61442f" stroke-width="17"/><path d="M20 456v128M160 456v128M300 456v128M440 456v128" stroke="#a6784f" stroke-width="4" opacity=".5"/></g>
+<!-- angler -->
+<g id="angler" transform="translate(210 393)"><ellipse cx="0" cy="4" rx="26" ry="7" fill="#052a40" opacity=".35"/><path d="M-10 -28l-16 33M10 -28l17 33" stroke="#233c4a" stroke-width="12" stroke-linecap="round"/><path d="M-16 -85Q-23 -55 -14 -32Q0 -19 16 -33L13 -83Z" fill="#ef9d56"/><path d="M-16 -80q15-12 31 0l5 13q-22 10-40-1Z" fill="#f5c38a"/><circle cy="-101" r="19" fill="#e8b18b"/><path d="M-20 -105Q-17 -129 6 -124Q21 -121 23 -104Q4 -111 -20 -105Z" fill="#16627c"/><path d="M-23 -104q19-8 47 0" stroke="#154c66" stroke-width="7" stroke-linecap="round"/><path d="M9 -77L34 -90" stroke="#e8b18b" stroke-width="9" stroke-linecap="round"/><path d="M-8 -23q11 3 20 0" stroke="#d47b49" stroke-width="3"/></g>
+<!-- rod and line -->
+<g id="fishingRod"><path d="M238 318Q315 235 398 258Q500 287 668 348" fill="none" stroke="#65432e" stroke-width="8" stroke-linecap="round"/><path d="M238 318Q315 235 398 258Q500 287 668 348" fill="none" stroke="#c58a55" stroke-width="2" stroke-linecap="round"/><path d="M668 348Q695 361 728 373L760 385" fill="none" stroke="#f0f2d9" stroke-width="2"/></g>
+<g id="splashFx" opacity="0"><path d="M735 391q-18-22-29-8M784 391q16-22 28-7M751 402q-5 13-12 16M770 402q5 13 12 16" fill="none" stroke="#e1fff7" stroke-width="4" stroke-linecap="round"/><circle cx="724" cy="374" r="4" fill="#e1fff7"/><circle cx="791" cy="374" r="3" fill="#e1fff7"/></g>
+<g id="hookedFish"><ellipse rx="30" ry="13" fill="currentColor" opacity=".9"/><path d="M-26 0l-20-14v28Z" fill="currentColor" opacity=".9"/><ellipse rx="30" ry="13" fill="#fff" opacity=".12"/></g>
+<g class="bobber" id="bobber"><path d="M760 384v-21" stroke="#f8ffff" stroke-width="3"/><path d="M748 386a12 12 0 0 1 24 0v7h-24Z" fill="#ff765f"/><path d="M748 393h24a12 12 0 0 1-24 0Z" fill="#fff5d6"/><circle cx="760" cy="385" r="13" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="2"/></g>
+<g id="sparkleBurst"></g>
+<g id="breachLayer"></g>
+<!-- foreground foam --> <path d="M0 602q95-12 190 0t190 0t190 0t190 0t190 0t190 0v18H0Z" fill="#85e6dc" opacity=".13"/>
+</svg>
+<div class="scene-message" id="sceneMessage">Sẵn sàng cho chuyến câu cá!<small id="sceneSub">Thả câu và khám phá những bí mật dưới đại dương.</small></div><div class="catch-banner" id="catchBanner"><div class="catch-emoji" id="catchEmoji">🐠</div><div class="catch-copy"><b id="catchName">Bạn đã câu được cá!</b><small id="catchDetail">0 kg · <strong>+0 vàng</strong></small></div></div>
+</div>
+<div class="world-footer"><div class="tip">💡 <span id="hintText">Giữ nút KÉO CÁ khi kim nằm trong vùng xanh.</span></div><div><span class="key">SPACE</span> <span>để kéo cá</span></div></div>
+</div>
+<div class="below"><div class="feature"><div class="feature-icon">🌊</div><div><b>Đại dương sống động</b><p>Ngày đêm, mưa nắng, bọt nước và sinh vật biển chuyển động.</p></div></div><div class="feature"><div class="feature-icon">✨</div><div><b>Sưu tầm 49 loài cá</b><p>Khám phá 5 vùng biển, săn cá huyền thoại và hoàn thành nhiệm vụ.</p></div></div></div>
+</section>
+<aside class="sidebar">
+<section class="panel"><div class="panel-head"><h2>🎯 CHUYẾN CÂU HIỆN TẠI</h2><span id="modeLabel">SẴN SÀNG</span></div><div class="status"><div class="dot" id="statusDot"></div><div><strong id="statusTitle">Mặt biển đang yên ả</strong><p id="statusDesc">Thả câu xuống làn nước trong xanh để bắt đầu.</p></div></div><div class="metric"><span>TIẾN ĐỘ KÉO CÁ</span><span id="progressText">0%</span></div><div class="bar"><div class="fill" id="progressFill"></div></div><div class="metric"><span>ĐỘ CĂNG DÂY</span><span id="tensionText">ỔN ĐỊNH</span></div><div class="tension"><div class="safe" id="safeZone"></div><div class="needle" id="needle"></div></div><div class="buttons"><button class="btn primary" id="castBtn">🎣 THẢ CÂU</button><button class="btn secondary" id="reelBtn" disabled>⬆ GIỮ ĐỂ KÉO</button></div><p class="note" id="controlNote">Nhấn THẢ CÂU để bắt đầu. Khi cá cắn, giữ KÉO CÁ đúng nhịp!</p></section>
+<section class="panel"><div class="panel-head"><h2>🧰 XƯỞNG NÂNG CẤP</h2><span>5 HẠNG MỤC</span></div><div class="gear-list"><div class="gear"><div class="gear-left"><div class="gear-icon">🎣</div><div><div class="gear-name">Cần câu</div><div class="gear-level" id="rodLevel">Cấp 1/10</div></div></div><button class="upgrade" id="rodUpgrade">NÂNG</button></div><div class="gear"><div class="gear-left"><div class="gear-icon">🪱</div><div><div class="gear-name">Mồi câu</div><div class="gear-level" id="baitLevel">Cấp 1/10</div></div></div><button class="upgrade" id="baitUpgrade">NÂNG</button></div><div class="gear"><div class="gear-left"><div class="gear-icon">⚙️</div><div><div class="gear-name">Máy cuốn dây</div><div class="gear-level" id="reelLevel">Cấp 1/10</div></div></div><button class="upgrade" id="reelUpgrade">NÂNG</button></div><div class="gear"><div class="gear-left"><div class="gear-icon">📡</div><div><div class="gear-name">Máy dò cá</div><div class="gear-level" id="sonarLevel">Cấp 1/5</div></div></div><button class="upgrade" id="sonarUpgrade">NÂNG</button></div><div class="gear"><div class="gear-left"><div class="gear-icon">🚤</div><div><div class="gear-name">Thuyền câu</div><div class="gear-level" id="boatLevel">Cấp 1/5</div></div></div><button class="upgrade" id="boatUpgrade">NÂNG</button></div></div><p class="note">Nâng cấp từng món để bắt cá quý và nhận nhiều vàng hơn.</p></section>
+<section class="panel"><div class="panel-head"><h2>📚 KHÁM PHÁ</h2><span>HỒ SƠ CỦA BẠN</span></div><div class="quick"><button id="bookBtn"><span>🐠</span><span>Sổ cá</span></button><button id="statsBtn"><span>🏅</span><span>Thành tích</span></button><button id="shopBtn"><span>🛍️</span><span>Cửa hàng</span></button><button id="settingsBtn"><span>⚙️</span><span>Cài đặt</span></button></div></section>
+<section class="panel"><div class="panel-head"><h2>🗺️ ĐIỂM CÂU</h2><span>KHÁM PHÁ BIỂN MỚI</span></div><div class="zone-list" id="zoneList"></div></section>
+<section class="panel"><div class="panel-head"><h2>📜 NHIỆM VỤ HẰNG NGÀY</h2><span>THƯỞNG MIỄN PHÍ</span></div><div class="quest-card"><div class="quest-top"><b>🐟 Cần thủ chăm chỉ</b><span>+120 🪙</span></div><p>Câu 3 con cá trong hôm nay để nhận thưởng.</p><div class="quest-progress"><i id="questFill"></i></div><div class="quest-bottom"><small id="questProgress">0 / 3 cá</small><button class="quest-claim" id="questClaim" disabled>NHẬN THƯỞNG</button></div></div></section>
+</aside></main><div class="footer">OCEAN CATCH · TIẾN TRÌNH ĐƯỢC LƯU TỰ ĐỘNG TRÊN THIẾT BỊ NÀY</div></div>
+<div class="modal-bg" id="modalBg" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal"><div class="modal-head"><h2 id="modalTitle">Sổ cá</h2><button class="close" id="closeModal" aria-label="Đóng">×</button></div><div id="modalContent"></div></div></div><div class="toast" id="toast"></div>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const KEY='oceanCatchSave_v2';
+const species=[
+{id:'clown',name:'Cá hề',emoji:'🐠',rarity:'Phổ biến',min:.3,max:1.4,price:18,weight:24,zones:['reef']},
+{id:'blue',name:'Cá xanh đại dương',emoji:'🐟',rarity:'Phổ biến',min:.5,max:2.2,price:20,weight:20,zones:['reef','deep','arctic']},
+{id:'puffer',name:'Cá nóc',emoji:'🐡',rarity:'Không phổ biến',min:.4,max:1.8,price:32,weight:12,zones:['reef']},
+{id:'angelfish',name:'Cá thần tiên',emoji:'🐠',rarity:'Không phổ biến',min:.4,max:2.1,price:35,weight:11,zones:['reef']},
+{id:'seahorse',name:'Cá ngựa',emoji:'🪸',rarity:'Hiếm',min:.1,max:.6,price:95,weight:4.8,zones:['reef']},
+{id:'turtle',name:'Rùa biển',emoji:'🐢',rarity:'Hiếm',min:1.2,max:5.5,price:52,weight:5,zones:['reef','deep']},
+{id:'squid',name:'Mực phát sáng',emoji:'🦑',rarity:'Hiếm',min:.8,max:4.4,price:67,weight:4.5,zones:['reef','deep']},
+{id:'jelly',name:'Sứa ánh trăng',emoji:'🪼',rarity:'Hiếm',min:.3,max:2.5,price:76,weight:4,zones:['deep']},
+{id:'sword',name:'Cá kiếm',emoji:'🐟',rarity:'Cực hiếm',min:8,max:24,price:105,weight:2.3,zones:['deep']},
+{id:'manta',name:'Cá đuối manta',emoji:'🪽',rarity:'Cực hiếm',min:12,max:35,price:120,weight:1.8,zones:['deep']},
+{id:'shark',name:'Cá mập con',emoji:'🦈',rarity:'Cực hiếm',min:5,max:18,price:92,weight:1.8,zones:['deep']},
+{id:'angler',name:'Cá cần câu vực sâu',emoji:'🐡',rarity:'Cực hiếm',min:3,max:13,price:145,weight:1.3,zones:['deep']},
+{id:'icefish',name:'Cá băng',emoji:'🐟',rarity:'Hiếm',min:1,max:6,price:78,weight:7,zones:['arctic']},
+{id:'narwhal',name:'Kỳ lân biển',emoji:'🐬',rarity:'Huyền thoại',min:15,max:38,price:155,weight:.85,zones:['arctic']},
+{id:'orca',name:'Cá voi sát thủ',emoji:'🐳',rarity:'Huyền thoại',min:22,max:55,price:175,weight:.65,zones:['arctic']},
+{id:'whale',name:'Cá voi xanh',emoji:'🐋',rarity:'Huyền thoại',min:18,max:46,price:160,weight:.55,zones:['deep','arctic']},
+{id:'butterfly',name:'Cá bướm',emoji:'🐠',rarity:'Không phổ biến',min:.2,max:1.1,price:34,weight:10,zones:['reef']},
+{id:'tang',name:'Cá đuôi gai xanh',emoji:'🐟',rarity:'Không phổ biến',min:.4,max:1.7,price:38,weight:9,zones:['reef']},
+{id:'lionfish',name:'Cá sư tử',emoji:'🦁',rarity:'Hiếm',min:.5,max:2.3,price:72,weight:4.5,zones:['reef']},
+{id:'parrot',name:'Cá mó',emoji:'🐠',rarity:'Không phổ biến',min:1,max:5,price:42,weight:8,zones:['reef']},
+{id:'surgeon',name:'Cá đuôi gai vàng',emoji:'🐟',rarity:'Hiếm',min:.6,max:2.5,price:65,weight:5,zones:['reef']},
+{id:'seadragon',name:'Rồng biển lá',emoji:'🐉',rarity:'Cực hiếm',min:.2,max:.9,price:180,weight:1.1,zones:['reef']},
+{id:'lantern',name:'Cá đèn lồng',emoji:'🐡',rarity:'Hiếm',min:.3,max:1.8,price:88,weight:5,zones:['deep']},
+{id:'viper',name:'Cá răng nanh',emoji:'🐟',rarity:'Cực hiếm',min:.4,max:2.2,price:155,weight:1.8,zones:['deep']},
+{id:'gulper',name:'Cá nuốt chửng',emoji:'🐡',rarity:'Cực hiếm',min:1,max:7,price:138,weight:1.6,zones:['deep']},
+{id:'oarfish',name:'Cá mái chèo',emoji:'🐉',rarity:'Huyền thoại',min:20,max:90,price:195,weight:.55,zones:['deep']},
+{id:'sawfish',name:'Cá cưa',emoji:'🦈',rarity:'Cực hiếm',min:12,max:48,price:142,weight:1.5,zones:['deep']},
+{id:'moray',name:'Lươn biển',emoji:'🐍',rarity:'Hiếm',min:2,max:12,price:76,weight:4.8,zones:['deep']},
+{id:'dragonfish',name:'Cá rồng đen',emoji:'🐉',rarity:'Huyền thoại',min:2,max:9,price:220,weight:.45,zones:['deep']},
+{id:'salmon',name:'Cá hồi tuyết',emoji:'🐟',rarity:'Không phổ biến',min:2,max:8,price:45,weight:10,zones:['arctic']},
+{id:'cod',name:'Cá tuyết',emoji:'🐟',rarity:'Phổ biến',min:1,max:7,price:24,weight:16,zones:['arctic']},
+{id:'halibut',name:'Cá bơn khổng lồ',emoji:'🐠',rarity:'Hiếm',min:5,max:35,price:88,weight:5,zones:['arctic']},
+{id:'char',name:'Cá hồi Bắc Cực',emoji:'🐟',rarity:'Hiếm',min:1,max:6,price:82,weight:6,zones:['arctic']},
+{id:'beluga',name:'Cá voi trắng beluga',emoji:'🐬',rarity:'Huyền thoại',min:18,max:50,price:185,weight:.6,zones:['arctic']},
+{id:'greenland',name:'Cá mập Greenland',emoji:'🦈',rarity:'Huyền thoại',min:80,max:250,price:205,weight:.35,zones:['arctic']},
+{id:'kelpfish',name:'Cá lá rong biển',emoji:'🐠',rarity:'Không phổ biến',min:.4,max:2,price:46,weight:12,zones:['kelp']},
+{id:'wolfeel',name:'Lươn sói',emoji:'🐍',rarity:'Hiếm',min:3,max:15,price:92,weight:5,zones:['kelp']},
+{id:'rockfish',name:'Cá đá',emoji:'🐟',rarity:'Phổ biến',min:1,max:6,price:28,weight:15,zones:['kelp']},
+{id:'seabass',name:'Cá vược bạc',emoji:'🐟',rarity:'Không phổ biến',min:2,max:9,price:52,weight:10,zones:['kelp']},
+{id:'sturgeon',name:'Cá tầm cổ đại',emoji:'🐠',rarity:'Cực hiếm',min:12,max:65,price:155,weight:1.7,zones:['kelp']},
+{id:'moonfish',name:'Cá mặt trăng',emoji:'🌕',rarity:'Huyền thoại',min:25,max:110,price:205,weight:.55,zones:['kelp']},
+{id:'lavafin',name:'Cá vây lửa',emoji:'🐠',rarity:'Không phổ biến',min:1,max:5,price:62,weight:12,zones:['volcano']},
+{id:'emberkoi',name:'Cá chép tro',emoji:'🐟',rarity:'Hiếm',min:2,max:9,price:98,weight:6,zones:['volcano']},
+{id:'magmaray',name:'Cá đuối dung nham',emoji:'🪽',rarity:'Cực hiếm',min:15,max:60,price:165,weight:2,zones:['volcano']},
+{id:'fireeel',name:'Lươn lửa',emoji:'🐍',rarity:'Hiếm',min:3,max:16,price:106,weight:5,zones:['volcano']},
+{id:'phoenix',name:'Cá phượng hoàng',emoji:'🔥',rarity:'Huyền thoại',min:5,max:24,price:255,weight:.55,zones:['volcano']},
+{id:'obsidian',name:'Cá mú hắc thạch',emoji:'🐡',rarity:'Cực hiếm',min:18,max:75,price:185,weight:1.5,zones:['volcano']},
+{id:'volcanoshark',name:'Cá mập núi lửa',emoji:'🦈',rarity:'Huyền thoại',min:45,max:160,price:230,weight:.4,zones:['volcano']},
+{id:'crimson',name:'Cá đuôi đỏ',emoji:'🐟',rarity:'Không phổ biến',min:1,max:4,price:58,weight:10,zones:['volcano','reef']}
+];
+const base={coins:120,caught:0,best:0,rod:1,bait:1,reel:1,sonar:1,boat:1,quality:'smooth',discovered:[],sound:false,zone:'reef',luckyBait:0,daily:{day:'',caught:0,claimed:false}};
+const zones={reef:{name:'Vịnh San Hô',tag:'VỊNH SAN HÔ · KHU VỰC 01',emoji:'🏝️',desc:'Vùng biển ấm áp, đầy màu sắc và cá nhiệt đới.',unlock:0,subtitle:'Cá nhiệt đới · Dễ câu'},deep:{name:'Vực Biển Sâu',tag:'VỰC BIỂN SÂU · KHU VỰC 02',emoji:'🌌',desc:'Nước xanh thẳm, nơi sinh sống của những loài cá khổng lồ.',unlock:8,subtitle:'Cá lớn · Hiếm hơn'},arctic:{name:'Biển Băng Bắc Cực',tag:'BIỂN BĂNG · KHU VỰC 03',emoji:'🧊',desc:'Lạnh giá và bí ẩn, nơi ẩn náu của sinh vật huyền thoại.',unlock:25,subtitle:'Cá lạnh · Cá voi'},kelp:{name:'Rừng Rong Biển',tag:'RỪNG RONG BIỂN · KHU VỰC 04',emoji:'🌿',desc:'Khu rừng dưới nước xanh mướt, đầy cá ẩn nấp giữa rong biển.',unlock:45,subtitle:'Cá ngụy trang · Cá cổ đại'},volcano:{name:'Miệng Núi Lửa',tag:'MIỆNG NÚI LỬA · KHU VỰC 05',emoji:'🌋',desc:'Vùng biển núi lửa nóng rực, nơi xuất hiện những sinh vật cực hiếm.',unlock:70,subtitle:'Cá lửa · Huyền thoại'}};
+let save;try{const parsed=JSON.parse(localStorage.getItem(KEY)||'null');save={...base,...(parsed&&typeof parsed==='object'?parsed:{})};if(!Array.isArray(save.discovered))save.discovered=[];}catch(e){save={...base};}
+if(!zones[save.zone])save.zone='reef';['rod','bait','reel','sonar','boat'].forEach(k=>save[k]=Math.max(1,Number(save[k])||1));save.quality=['smooth','balanced','beautiful'].includes(save.quality)?save.quality:'smooth';save.luckyBait=Math.max(0,Number(save.luckyBait)||0);save.daily={day:'',caught:0,claimed:false,...(save.daily&&typeof save.daily==='object'?save.daily:{})};
+let mode='idle',progress=0,tension=.5,lineHealth=1,reeling=false,fish=null,fishWeight=0,reward=0,phase=0,waitLeft=0,clock=0,toastTimer=0,audio=null,sceneTimer=0,weatherTimer=0,weatherIndex=0,catchBannerTimer=0,streak=0;
+const weatherTypes=[{label:'☀️ Trời quang · Biển êm',kind:'clear'},{label:'🌤️ Mây trôi · Gió nhẹ',kind:'cloud'},{label:'🌦️ Mưa biển · Sóng lăn tăn',kind:'rain'}];
+function ensureDaily(){const day=new Date().toISOString().slice(0,10);if(save.daily.day!==day){save.daily={day,caught:0,claimed:false};persist();}}
+function persist(){try{localStorage.setItem(KEY,JSON.stringify(save));}catch(e){}}
+function toast(message){const el=$('toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2300);}
+function say(title,sub){$('sceneMessage').firstChild.textContent=title;$('sceneSub').textContent=sub;}
+function updateStatus(){const data={idle:['Mặt biển đang yên ả','Thả câu xuống làn nước trong xanh để bắt đầu.','SẴN SÀNG','#8de8ba'],casting:['Đang thả dây câu...','Mồi câu đang bay về phía vùng nước sâu.','ĐANG THẢ','#7bd4f0'],waiting:['Đang chờ cá cắn câu','Đừng rời mắt khỏi chiếc phao nhé!','ĐANG CHỜ','#ffd27b'],fight:['Có cá mắc câu!','Canh kim trong vùng xanh rồi giữ KÉO CÁ.','ĐANG CÂU','#ffcd74'],result:['Chiến lợi phẩm tuyệt vời!',`${fish?.name||'Cá'} · ${fishWeight.toFixed(2)} kg · Nhận ${reward} vàng.`,'THÀNH CÔNG','#8de8ba']}[mode];$('statusTitle').textContent=data[0];$('statusDesc').textContent=data[1];$('modeLabel').textContent=data[2];$('statusDot').style.background=data[3];$('statusDot').style.boxShadow=`0 0 13px ${data[3]}`;}
+let zoneRenderKey='';function renderZones(){const host=$('zoneList');if(!host)return;const key=`${save.caught}|${save.zone}`;if(key===zoneRenderKey)return;zoneRenderKey=key;host.innerHTML=Object.entries(zones).map(([id,z])=>{const locked=save.caught<z.unlock,active=save.zone===id;return `<button class="zone-choice ${active?'active':''}" data-zone="${id}" ${locked?'disabled':''}><span class="zone-emoji">${z.emoji}</span><span class="zone-info"><b>${z.name}</b><small>${locked?`Mở khóa sau ${z.unlock} cá` :z.subtitle}</small></span><span class="zone-state">${active?'ĐANG Ở':locked?'🔒': 'ĐI ĐẾN'}</span></button>`;}).join('');host.querySelectorAll('[data-zone]').forEach(b=>b.addEventListener('click',()=>selectZone(b.dataset.zone)));}
+function renderDaily(){ensureDaily();const count=Math.min(3,save.daily.caught);$('questFill').style.width=(count/3*100)+'%';$('questProgress').textContent=`${count} / 3 cá`;const claim=$('questClaim');claim.disabled=count<3||save.daily.claimed;claim.textContent=save.daily.claimed?'ĐÃ NHẬN':'NHẬN THƯỞNG';}
+function selectZone(id){if(mode!=='idle'&&mode!=='result'){toast('Hãy kết thúc chuyến câu trước khi đổi vùng biển.');return;}const z=zones[id];if(!z)return;if(save.caught<z.unlock){toast(`Cần câu được ${z.unlock} con cá để mở khu vực này.`);return;}save.zone=id;persist();$('areaLabel').textContent='📍 '+z.tag;$('world').classList.remove(...Object.keys(zones));$('world').classList.add(id);say(`Chào mừng đến ${z.name}!`,z.desc);renderZones();tone(540,.08);toast(`Đã di chuyển đến ${z.name}!`);}
+function claimDaily(){ensureDaily();if(save.daily.caught<3||save.daily.claimed)return;save.daily.claimed=true;save.coins+=120;persist();render();toast('Nhiệm vụ hoàn thành! Bạn nhận được 120 vàng.');tone(880,.12);}
+function updateScene(){const world=$('world');world.classList.remove('rain');const w=weatherTypes[weatherIndex%weatherTypes.length];if(w.kind==='rain')world.classList.add('rain');$('weatherLabel').textContent=w.label;world.classList.toggle('night',Math.floor(sceneTimer/80)%2===1);}
+function setWorldMode(){const world=$('world');world.classList.remove('idle','casting','waiting','fight','result');world.classList.add(mode);}
+function showCatchBanner(){const banner=$('catchBanner');$('catchEmoji').textContent=fish.emoji;$('catchName').textContent=fish.name;const streakTxt=streak>1?` · 🔥x${streak}`:'';$('catchDetail').innerHTML=`${fishWeight.toFixed(2)} kg · <strong>+${reward} vàng</strong>${streakTxt}`;banner.classList.remove('epic','legend');const tier=fish.rarity==='Huyền thoại'?'legend':fish.rarity==='Cực hiếm'?'epic':'';if(tier){banner.classList.add(tier);spawnSparkles(tier);tone(1320,.16);}banner.classList.add('show');clearTimeout(catchBannerTimer);catchBannerTimer=setTimeout(()=>{banner.classList.remove('show');},3600);}
+function render(){
+ $('coinCount').textContent=save.coins.toLocaleString('vi-VN');$('catchCount').textContent=save.caught;$('recordWeight').textContent=save.best.toFixed(2)+' kg';const st=$('streakTag');if(st){if(streak>1){st.style.display='inline-flex';st.textContent='🔥 Chuỗi x'+streak;}else{st.style.display='none';}}
+ const gear=[
+  ['rod','rodLevel','rodUpgrade','🎣','Cần câu',10,'Tăng sức bền dây và cân cá'],
+  ['bait','baitLevel','baitUpgrade','🪱','Mồi câu',10,'Cá cắn nhanh hơn, dễ gặp cá quý'],
+  ['reel','reelLevel','reelUpgrade','⚙️','Máy cuốn dây',10,'Kéo cá nhanh hơn'],
+  ['sonar','sonarLevel','sonarUpgrade','📡','Máy dò cá',5,'Vùng canh dây rộng hơn, tăng cơ hội cá hiếm'],
+  ['boat','boatLevel','boatUpgrade','🚤','Thuyền câu',5,'Tăng vàng nhận được sau mỗi mẻ cá']
+ ];
+ gear.forEach(([key,levelId,buttonId,icon,label,max,desc])=>{const level=save[key];const baseCost={rod:140,bait:95,reel:165,sonar:260,boat:420}[key];const cost=Math.round(baseCost*Math.pow(level,1.42));$(levelId).textContent=`Cấp ${level}/${max} · ${desc}`;$(buttonId).textContent=level>=max?'TỐI ĐA':`NÂNG · ${cost}🪙`;$(buttonId).disabled=level>=max||save.coins<cost;});
+ $('castBtn').disabled=!(mode==='idle'||mode==='result');$('castBtn').textContent=mode==='result'?'🎣 CÂU TIẾP':'🎣 THẢ CÂU';$('reelBtn').disabled=mode!=='fight';$('reelBtn').textContent=mode==='fight'?(reeling?'⬇ ĐANG KÉO...':'⬆ GIỮ ĐỂ KÉO'):'⬆ GIỮ ĐỂ KÉO';$('progressFill').style.width=Math.round(progress*100)+'%';$('progressText').textContent=Math.round(progress*100)+'%';$('needle').style.left=(tension*100)+'%';$('safeZone').style.left=(50-(29+(save.sonar-1)*2.2))+'%';$('safeZone').style.width=(58+(save.sonar-1)*4.4)+'%';$('tensionText').textContent=mode==='fight'?(tension>.86?'QUÁ CĂNG':tension<.14?'CHÙNG DÂY':'ĐANG THAY ĐỔI'):'ỔN ĐỊNH';$('controlNote').textContent=mode==='fight'?'Giữ khi kim nằm trong vùng xanh. Nhả ra nếu dây quá căng!':mode==='waiting'?'Cá sắp cắn câu — chuẩn bị kéo cần!':mode==='result'?'Chiến lợi phẩm đã được thêm vào sổ cá!':'Nhấn THẢ CÂU để bắt đầu. Khi cá cắn, giữ KÉO CÁ đúng nhịp!';$('hintText').textContent=mode==='fight'?'Giữ nút KÉO CÁ khi kim nằm trong vùng xanh.':'Hãy chờ tiếng cá cắn câu rồi kéo cần đúng nhịp!';setWorldMode();renderDaily();renderZones();$('areaLabel').textContent='📍 '+zones[save.zone].tag;applyPerformance();
+}
+function chooseFish(luckyBoost=save.luckyBait>0){
+ const list=species.filter(f=>f.zones.includes(save.zone)).map(f=>({f,w:f.weight}));
+ const boost=(save.bait-1)*.20+(save.sonar-1)*.28+(save.boat-1)*.08+(luckyBoost?.9:0);
+ const rare=['Hiếm','Cực hiếm','Huyền thoại'];
+ const weighted=list.map(o=>({f:o.f,w:o.w*(rare.includes(o.f.rarity)?1+boost:1)}));
+ let n=Math.random()*weighted.reduce((sum,o)=>sum+o.w,0);for(const o of weighted){n-=o.w;if(n<=0)return o.f;}return weighted[0]?.f||species[0];
+}
+function cast(){if(mode==='result'){mode='idle';fish=null;progress=0;$('catchBanner').classList.remove('show');say('Sẵn sàng cho chuyến câu cá!','Thả câu và xem hôm nay biển mang đến điều gì.');updateStatus();render();return;}if(mode!=='idle')return;mode='casting';phase=0;reeling=false;say('Chuẩn bị thả câu!','Mồi câu đang bay xuống vùng nước sâu...');updateStatus();render();tone(440,.07);startLoop();}
+function beginFight(){const useLucky=save.luckyBait>0;fish=chooseFish(useLucky);if(useLucky){save.luckyBait--;persist();}const hf=$('hookedFish');if(hf){const col={'Phổ biến':'#9db3c2','Không phổ biến':'#5fd3a0','Hiếm':'#5bb6ef','Cực hiếm':'#c58bf2','Huyền thoại':'#ffd35b'}[fish.rarity]||'#9db3c2';const sc=.55+Math.min(1,fish.max/60)*.85;hf.style.color=col;hf.style.transform=`translate(${(748+Math.random()*22).toFixed(0)}px,${(406+Math.random()*20).toFixed(0)}px) scale(${sc.toFixed(2)})`;hf.style.filter=fish.rarity==='Huyền thoại'?'drop-shadow(0 0 9px #ffd35bcc)':fish.rarity==='Cực hiếm'?'drop-shadow(0 0 7px #c58bf299)':'none';}mode='fight';phase=0;progress=0;tension=.5;lineHealth=1;reeling=false;say('CÁ CẮN CÂU!','Giữ nút KÉO CÁ khi kim nằm trong vùng xanh!');updateStatus();render();tone(660,.09);toast('Có cá cắn câu! Kéo cần thôi!');}
+function catchFish(){mode='result';reeling=false;fishWeight=+(fish.min+Math.random()*(fish.max-fish.min)).toFixed(2);fishWeight=+(fishWeight*(1+(save.rod-1)*.025)).toFixed(2);reward=Math.max(1,Math.round(fishWeight*fish.price*(1+(save.boat-1)*.09)));streak++;const streakBonus=Math.min(.5,(streak-1)*.05);if(streakBonus>0)reward=Math.round(reward*(1+streakBonus));save.coins+=reward;save.caught++;ensureDaily();save.daily.caught++;save.best=Math.max(save.best,fishWeight);if(!save.discovered.includes(fish.id))save.discovered.push(fish.id);persist();say(`${fish.emoji} ${fish.name}!`,`Bạn câu được ${fishWeight.toFixed(2)} kg · +${reward} vàng`);updateStatus();render();showCatchBanner();tone(820,.1);setTimeout(()=>tone(1040,.12),120);toast(`Tuyệt vời! +${reward} vàng`);}
+function lineBreak(){mode='idle';reeling=false;progress=0;lineHealth=1;streak=0;say('Cá đã thoát mất rồi!','Thử lại nhé — lần tới bạn sẽ bắt được nó.');updateStatus();render();toast('Dây câu bị căng quá! Cá đã thoát.');tone(160,.16);}
+function tick(dt){if(mode==='casting'){phase+=dt;if(phase>.8){mode='waiting';waitLeft=Math.max(.85,2.9+Math.random()*2.15-(save.bait-1)*.22-(save.sonar-1)*.16-(save.boat-1)*.05);say('Mồi câu đã chạm nước!','Mặt nước gợn nhẹ... có cá đang đến.');updateStatus();render();}}else if(mode==='waiting'){waitLeft-=dt;if(waitLeft<=0)beginFight();}else if(mode==='fight'){phase+=dt;tension=.5+.37*Math.sin(phase*2.5)+.1*Math.sin(phase*5.3);tension=Math.max(.04,Math.min(.96,tension));if(reeling){if(tension>.86){lineHealth-=dt*Math.max(.075,.20-(save.rod-1)*.014);progress=Math.max(0,progress-dt*.045);}else if(tension<.14){progress+=dt*.07;}else{progress+=dt*(.205+(save.reel-1)*.038+(save.rod-1)*.012+(save.bait-1)*.009);}}else{lineHealth=Math.min(1,lineHealth+dt*(.045+(save.rod-1)*.006));}if(lineHealth<=0){lineBreak();return;}if(progress>=1){catchFish();return;}}sceneTimer+=dt;if(sceneTimer-weatherTimer>42){weatherTimer=sceneTimer;weatherIndex=(weatherIndex+1+Math.floor(Math.random()*2))%weatherTypes.length;updateScene();}if(['casting','waiting','fight'].includes(mode)){if(clock+dt>.12){clock=0;render();}else{clock+=dt;}}}
+let last=performance.now(),loopTimer=null;
+function loop(){
+ const now=performance.now(),dt=Math.min(.16,(now-last)/1000||0);last=now;
+ tick(dt);
+ const active=['casting','waiting','fight'].includes(mode);
+ loopTimer=setTimeout(loop,active?50:1100);
+}
+function startLoop(){if(loopTimer!==null)clearTimeout(loopTimer);last=performance.now();loopTimer=setTimeout(loop,50);}
+
+function press(){if(mode==='fight'&&!reeling){reeling=true;render();}}
+function release(){if(reeling){reeling=false;render();}}
+$('castBtn').addEventListener('click',cast);const reel=$('reelBtn');reel.addEventListener('pointerdown',e=>{e.preventDefault();press();try{reel.setPointerCapture(e.pointerId);}catch(_){}});['pointerup','pointercancel','lostpointercapture','pointerleave'].forEach(ev=>reel.addEventListener(ev,release));window.addEventListener('keydown',e=>{if(e.code==='Space'&&!e.repeat){e.preventDefault();press();}});window.addEventListener('keyup',e=>{if(e.code==='Space')release();});window.addEventListener('blur',release);
+const upgradeMeta={rod:{max:10,base:140,label:'Cần câu'},bait:{max:10,base:95,label:'Mồi câu'},reel:{max:10,base:165,label:'Máy cuốn dây'},sonar:{max:5,base:260,label:'Máy dò cá'},boat:{max:5,base:420,label:'Thuyền câu'}};
+function upgrade(which){
+ if(!['idle','result'].includes(mode)){toast('Hãy hoàn thành chuyến câu trước khi nâng cấp!');return;}
+ const meta=upgradeMeta[which];if(!meta)return;const level=save[which],cost=Math.round(meta.base*Math.pow(level,1.42));
+ if(level>=meta.max){toast(meta.label+' đã đạt cấp tối đa!');return;}
+ if(save.coins<cost){toast(`Cần thêm ${(cost-save.coins).toLocaleString('vi-VN')} vàng để nâng cấp ${meta.label.toLowerCase()}.`);return;}
+ save.coins-=cost;save[which]++;persist();render();toast(`${meta.label} đã lên cấp ${save[which]}!`);tone(720,.1);
+}
+$('rodUpgrade').addEventListener('click',()=>upgrade('rod'));$('baitUpgrade').addEventListener('click',()=>upgrade('bait'));$('reelUpgrade').addEventListener('click',()=>upgrade('reel'));$('sonarUpgrade').addEventListener('click',()=>upgrade('sonar'));$('boatUpgrade').addEventListener('click',()=>upgrade('boat'));$('questClaim').addEventListener('click',claimDaily);
+function openModal(title,html){$('modalTitle').textContent=title;$('modalContent').innerHTML=html;$('modalBg').classList.add('open');}
+function closeModal(){$('modalBg').classList.remove('open');}$('closeModal').addEventListener('click',closeModal);$('modalBg').addEventListener('click',e=>{if(e.target===$('modalBg'))closeModal();});window.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+$('bookBtn').addEventListener('click',()=>{const html=`<p class="intro">Bạn đã khám phá <b>${save.discovered.length}/${species.length}</b> loài sinh vật biển. Những loài chưa gặp vẫn đang ẩn mình dưới đại dương!</p><div class="collection">${species.map(f=>{const got=save.discovered.includes(f.id);return `<div class="fish-tile ${got?'':'unknown'}"><div class="fish-pic">${got?f.emoji:'❔'}</div><div><b>${got?f.name:'Chưa khám phá'}</b><small>${got?f.rarity+' · '+(zones[f.zones[0]]?.name||'Đại dương'):'Hãy tiếp tục câu cá'}</small></div></div>`;}).join('')}</div>`;openModal('🐠 Sổ sinh vật biển',html);});
+
+$('shopBtn').addEventListener('click',()=>{openModal('🛍️ Cửa hàng ngư dân',`<p class="intro">Chuẩn bị tốt hơn trước khi ra khơi. Mồi vàng giúp tăng cơ hội gặp cá quý trong một lần thả câu.</p><div class="shop-grid"><div class="shop-item"><div class="gear-icon">✨</div><div><b>Mồi vàng may mắn</b><small>Tăng cơ hội gặp cá hiếm, cực hiếm và huyền thoại trong chuyến câu kế tiếp. Đang có: ${save.luckyBait}</small></div><button class="shop-buy" id="buyLucky" ${save.coins<90?'disabled':''}>90 🪙</button></div><div class="shop-item"><div class="gear-icon">🧰</div><div><b>Nâng cấp cần câu</b><small>Tăng tốc độ kéo cá và khả năng giữ dây. Mở khóa tối đa cấp 5.</small></div><button class="shop-buy" id="shopRod">XEM</button></div><div class="shop-item"><div class="gear-icon">🪱</div><div><b>Nâng cấp mồi câu</b><small>Giảm thời gian chờ cá cắn và tăng sức hút của mồi.</small></div><button class="shop-buy" id="shopBait">XEM</button></div></div>`);$('buyLucky').addEventListener('click',()=>{if(save.coins<90)return;save.coins-=90;save.luckyBait++;persist();render();closeModal();toast('Đã mua 1 mồi vàng may mắn!');tone(720,.1);});$('shopRod').addEventListener('click',()=>{closeModal();upgrade('rod');});$('shopBait').addEventListener('click',()=>{closeModal();upgrade('bait');});});
+
+$('statsBtn').addEventListener('click',()=>{const rare=save.discovered.filter(id=>{const f=species.find(x=>x.id===id);return f&&['Hiếm','Cực hiếm','Huyền thoại'].includes(f.rarity);}).length;openModal('🏅 Thành tích của bạn',`<p class="intro">Những dấu mốc trên hành trình khám phá đại dương.</p><div class="gear-list"><div class="gear"><div class="gear-left"><div class="gear-icon">🐟</div><div><div class="gear-name">Tổng số cá đã câu</div><div class="gear-level">Mỗi chuyến đi là một kỷ niệm</div></div></div><b>${save.caught}</b></div><div class="gear"><div class="gear-left"><div class="gear-icon">⚖️</div><div><div class="gear-name">Cá lớn nhất</div><div class="gear-level">Kỷ lục cá nhân</div></div></div><b>${save.best.toFixed(2)} kg</b></div><div class="gear"><div class="gear-left"><div class="gear-icon">🌟</div><div><div class="gear-name">Loài quý đã khám phá</div><div class="gear-level">Hiếm, cực hiếm và huyền thoại</div></div></div><b>${rare}</b></div><div class="gear"><div class="gear-left"><div class="gear-icon">🪙</div><div><div class="gear-name">Số vàng hiện có</div><div class="gear-level">Dùng để nâng cấp đồ câu</div></div></div><b>${save.coins.toLocaleString('vi-VN')}</b></div><div class="gear"><div class="gear-left"><div class="gear-icon">🗺️</div><div><div class="gear-name">Vùng biển đã mở</div><div class="gear-level">Tiếp tục câu để mở vùng mới</div></div></div><b>${Object.values(zones).filter(z=>save.caught>=z.unlock).length}/5</b></div></div>`);});
+$('settingsBtn').addEventListener('click',()=>{openModal('⚙️ Cài đặt',`<p class="intro">Tiến trình được lưu tự động trên trình duyệt này. Chọn mức đồ họa phù hợp với máy của bạn.</p><div class="sound-row"><span>🔊 Âm thanh hiệu ứng</span><button id="soundSwitch" class="sound-toggle ${save.sound?'on':''}" aria-label="Bật hoặc tắt âm thanh"></button></div><div class="quality-box"><b>⚡ Hiệu năng và hiệu ứng</b><div class="quality-options"><button id="qualitySmooth" class="quality-option ${save.quality==='smooth'?'active':''}">🚀 Mượt</button><button id="qualityBalanced" class="quality-option ${save.quality==='balanced'?'active':''}">⚖️ Cân bằng</button><button id="qualityBeautiful" class="quality-option ${save.quality==='beautiful'?'active':''}">✨ Đẹp</button></div><small>Mượt giảm hạt nước và một số hiệu ứng phụ; chuyển động câu cá vẫn hoạt động.</small></div><button class="btn secondary" style="width:100%" id="resetSave">↻ XÓA TIẾN TRÌNH VÀ CHƠI LẠI</button><p class="note">Thao tác đặt lại sẽ xóa vàng, cấp đồ câu và sổ cá trên thiết bị này.</p>`);$('soundSwitch').addEventListener('click',()=>{save.sound=!save.sound;persist();$('soundSwitch').classList.toggle('on',save.sound);if(save.sound)tone(660,.08);});[['qualitySmooth','smooth'],['qualityBalanced','balanced'],['qualityBeautiful','beautiful']].forEach(([id,q])=>$(id).addEventListener('click',()=>{save.quality=q;persist();applyPerformance();spawnFish();spawnBubbles();['qualitySmooth','qualityBalanced','qualityBeautiful'].forEach(x=>$(x).classList.toggle('active',x===id));toast(q==='smooth'?'Đã bật chế độ mượt.':q==='beautiful'?'Đã bật hiệu ứng đẹp.':'Đã bật đồ họa cân bằng.');}));$('resetSave').addEventListener('click',()=>{if(confirm('Bạn có chắc muốn xóa toàn bộ tiến trình Ocean Catch?')){save={...base,discovered:[],daily:{day:new Date().toISOString().slice(0,10),caught:0,claimed:false}};persist();mode='idle';fish=null;progress=0;lineHealth=1;$('catchBanner').classList.remove('show');$('world').classList.remove(...Object.keys(zones),'night','rain');$('world').classList.add('reef');say('Chào mừng trở lại!','Hành trình mới đang chờ bạn khám phá.');updateStatus();render();closeModal();toast('Đã bắt đầu lại từ đầu.');}});});
+function applyPerformance(){const world=$('world');if(!world)return;world.classList.remove('quality-smooth','quality-balanced','quality-beautiful');world.classList.add('quality-'+(save.quality||'balanced'));}
+
+function tone(freq,duration){if(!save.sound)return;try{audio=audio||new(window.AudioContext||window.webkitAudioContext)();const o=audio.createOscillator(),g=audio.createGain();o.type='sine';o.frequency.value=freq;g.gain.setValueAtTime(.035,audio.currentTime);g.gain.exponentialRampToValueAtTime(.001,audio.currentTime+duration);o.connect(g);g.connect(audio.destination);o.start();o.stop(audio.currentTime+duration);}catch(e){}}
+function spawnFish(){const host=document.getElementById('fishSwarm');if(!host)return;host.innerHTML='';const n={smooth:16,balanced:28,beautiful:44}[save.quality]||22;const NS='http://www.w3.org/2000/svg';const frag=document.createDocumentFragment();for(let i=0;i<n;i++){const d=Math.random(),far=d<.36,near=d>.8,y=355+Math.random()*248,s=far?.26+Math.random()*.16:near?.62+Math.random()*.42:.36+Math.random()*.22,rev=Math.random()<.5,dur=(far?23:near?10:15)+Math.random()*9,delay=-Math.random()*dur,hue=Math.round(Math.random()*300-40);const g=document.createElementNS(NS,'g');g.setAttribute('class','fish-proc '+(far?'far':near?'near':'mid')+(rev?' rev':''));g.setAttribute('style',`--y:${y.toFixed(0)}px;--hue:${hue}deg;animation-duration:${dur.toFixed(2)}s;animation-delay:${delay.toFixed(2)}s;transform:scale(${(rev?-s:s).toFixed(2)},${s.toFixed(2)})`);g.innerHTML='<use href="#fishTpl"/>';frag.appendChild(g);}host.appendChild(frag);}
+function spawnBubbles(){const host=document.getElementById('bubbleField');if(!host)return;const extra={smooth:6,balanced:14,beautiful:24}[save.quality]||14;const NS='http://www.w3.org/2000/svg';for(let i=0;i<extra;i++){const c=document.createElementNS(NS,'circle'),dur=3.4+Math.random()*4.6,delay=-Math.random()*dur;c.setAttribute('class','bubble b'+(1+i%4));c.setAttribute('cx',(130+Math.random()*900).toFixed(0));c.setAttribute('cy',(555+Math.random()*55).toFixed(0));c.setAttribute('r',(1.5+Math.random()*4.3).toFixed(1));c.setAttribute('style',`animation-duration:${dur.toFixed(2)}s;animation-delay:${delay.toFixed(2)}s`);host.appendChild(c);}}
+function spawnCaustics(){const host=document.getElementById('caustics');if(!host)return;const NS='http://www.w3.org/2000/svg';for(let i=0;i<6;i++){const p=document.createElementNS(NS,'ellipse');p.setAttribute('cx',(110+Math.random()*890).toFixed(0));p.setAttribute('cy',(398+Math.random()*195).toFixed(0));p.setAttribute('rx',(24+Math.random()*42).toFixed(0));p.setAttribute('ry',(6+Math.random()*5).toFixed(0));p.setAttribute('class','caustic');p.setAttribute('style','animation-delay:'+(-Math.random()*7).toFixed(2)+'s');host.appendChild(p);}}
+function spawnSparkles(tier){const host=document.getElementById('sparkleBurst');if(!host)return;host.innerHTML='';const NS='http://www.w3.org/2000/svg';const n=tier==='legend'?22:14;const color=tier==='legend'?'#ffe9a8':'#e9c8ff';for(let i=0;i<n;i++){const a=Math.random()*Math.PI*2,d=28+Math.random()*68;const p=document.createElementNS(NS,'path');p.setAttribute('d','M0 -5l1.6 3.4 3.4 1.6-3.4 1.6L0 10l-1.6-3.4L-5 5l3.4-1.6Z');p.setAttribute('fill',color);const x=(760+Math.cos(a)*d).toFixed(0),y=(394+Math.sin(a)*d).toFixed(0),dur=(.7+Math.random()*.4).toFixed(2);p.setAttribute('style',`transform-box:fill-box;transform-origin:center;transform:translate(${x}px,${y}px);animation:sparkleFly ${dur}s ease-out forwards`);host.appendChild(p);}setTimeout(()=>{host.innerHTML='';},1300);}
+function breachFish(){const host=document.getElementById('breachLayer');if(!host)return;const x=140+Math.random()*820,hue=Math.round(Math.random()*300-40);const g=document.createElementNS('http://www.w3.org/2000/svg','g');g.setAttribute('class','breach-fish');g.setAttribute('style',`--bx:${x.toFixed(0)}px;--hue:${hue}deg`);g.innerHTML='<use href="#fishTpl" transform="scale(1.15)"/>';host.appendChild(g);const ring=document.createElementNS('http://www.w3.org/2000/svg','ellipse');ring.setAttribute('class','ripple');ring.setAttribute('cx',x.toFixed(0));ring.setAttribute('cy',392);ring.setAttribute('rx',18);ring.setAttribute('ry',6);host.appendChild(ring);setTimeout(()=>{g.remove();ring.remove();},1300);}
+function scheduleBreach(){const gap=(save.quality==='smooth'?15:8)+Math.random()*9;setTimeout(()=>{breachFish();scheduleBreach();},gap*1000);}
+function spawnRainRipple(){const host=document.getElementById('rainRipples');if(!host||!$('world').classList.contains('rain'))return;const e=document.createElementNS('http://www.w3.org/2000/svg','ellipse'),x=100+Math.random()*900;e.setAttribute('class','ripple');e.setAttribute('cx',x.toFixed(0));e.setAttribute('cy',(356+Math.random()*10).toFixed(0));e.setAttribute('rx',6);e.setAttribute('ry',2.4);host.appendChild(e);setTimeout(()=>e.remove(),2500);}
+function scheduleRain(){spawnRainRipple();setTimeout(scheduleRain,350+Math.random()*450);}
+function spawnMotes(){const host=document.getElementById('bubbleField');if(!host)return;const rayZones=[[20,195],[345,535],[785,995]];const NS='http://www.w3.org/2000/svg';const n={smooth:4,balanced:8,beautiful:14}[save.quality]||8;for(let i=0;i<n;i++){const z=rayZones[i%3],x=z[0]+Math.random()*(z[1]-z[0]);const c=document.createElementNS(NS,'circle'),dur=5+Math.random()*5,delay=-Math.random()*dur;c.setAttribute('class','bubble b'+(1+i%4));c.setAttribute('cx',x.toFixed(0));c.setAttribute('cy',(430+Math.random()*150).toFixed(0));c.setAttribute('r',(1+Math.random()*1.6).toFixed(1));c.setAttribute('style',`fill:#fff6d8;stroke:none;animation-duration:${dur.toFixed(2)}s;animation-delay:${delay.toFixed(2)}s`);host.appendChild(c);}}
+function spawnShootingStar(){const host=document.getElementById('shootingStar');if(!host||!$('world').classList.contains('night'))return;const y0=60+Math.random()*120,x0=550+Math.random()*450;const l=document.createElementNS('http://www.w3.org/2000/svg','line');l.setAttribute('x1',x0);l.setAttribute('y1',y0);l.setAttribute('x2',x0-46);l.setAttribute('y2',y0-22);l.setAttribute('stroke','#fff');l.setAttribute('stroke-width','2');l.setAttribute('stroke-linecap','round');l.setAttribute('class','shoot-trail');host.appendChild(l);setTimeout(()=>l.remove(),900);}
+function scheduleShootingStar(){spawnShootingStar();setTimeout(scheduleShootingStar,9000+Math.random()*11000);}
+ensureDaily();updateScene();$('world').classList.add(save.zone);applyPerformance();updateStatus();render();startLoop();spawnFish();spawnBubbles();spawnCaustics();scheduleBreach();scheduleRain();spawnMotes();scheduleShootingStar();
+})();
+</script>
+</body>
+</html>
